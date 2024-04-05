@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');"
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('https://res.cloudinary.com/dedwkqlng/image/upload/v1711322208/assets/hero_bg.jpg');"
       data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">

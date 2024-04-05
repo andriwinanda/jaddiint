@@ -4,12 +4,10 @@
       <div class="row mb-5">
         <div class="col-sm-12 col-md">
           <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2 logo"><a href="#">JADDI <span>Internasional</span></a></h2>
-            <p>Encapsulates the essence of cherishing life's finest occasions with the perfect beverage.</p>
+            <h2 class="ftco-heading-2 logo"><a href="#">PT. JADDI <span>INTERNASIONAL</span></a></h2>
+            <p>Wine & Spirit Importir</p>
             <ul class="ftco-footer-social list-unstyled mt-2">
-              <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-              <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-              <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+              <li class="ftco-animate"><a target="_blank" href="https://www.instagram.com/jaddi.internasional/"><span class="fa fa-instagram"></span></a></li>
             </ul>
           </div>
         </div>

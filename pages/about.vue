@@ -1,13 +1,14 @@
 <template>
     <div>
-      <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_2.jpg');"
+      <section class="hero-wrap hero-wrap-2" style="background-image: url('https://res.cloudinary.com/dedwkqlng/image/upload/v1711322208/assets/hero_bg.jpg');"
         data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-end justify-content-center">
             <div class="col-md-9 ftco-animate mb-5 text-center">
-              <p class="breadcrumbs mb-0"><span class="mr-2"><a href="/">Home <i
-                      class="fa fa-chevron-right"></i></a></span> <span>About us <i class="fa fa-chevron-right"></i></span>
+              <p class="breadcrumbs mb-0"><span class="mr-2">
+                <a href="/">Home  <i class="fa fa-chevron-right"></i> </a></span> 
+                <span>About us <i class="fa fa-chevron-right"></i></span>
               </p>
               <h2 class="mb-0 bread">About Us</h2>
             </div>
@@ -19,7 +20,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6 img img-3 d-flex justify-content-center align-items-center"
-              style="background-image: url(images/about.jpg);">
+              style="background-image: url('https://res.cloudinary.com/dedwkqlng/image/upload/v1711322208/assets/about.jpg');">
             </div>
             <div class="col-md-6 wrap-about pl-md-5 ftco-animate py-5">
               <div class="heading-section">
@@ -130,6 +131,13 @@
                 <h5 class="subheading strong text-primary my-3">Japanese Alc. Bev. Brand Manager</h5>
                 <h5 class="strong mb-0">Susan Halim</h5>
                 <a class="text-dark small" href="mailto:susan@jaddi-internasional.com">susan@jaddi-internasional.com</a>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3 col-sm-6 d-flex">
+              <div class="ftco-animate">
+                <h5 class="subheading strong text-primary my-3">Brand Manager Spirit</h5>
+                <h5 class="strong mb-0">Winsa Gabuana</h5>
+                <a class="text-dark small" href="mailto:winsa@jaddi-internasional.com">winsa@jaddi-internasional.com</a>
               </div>
             </div>
           

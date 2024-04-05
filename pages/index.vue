@@ -4,7 +4,7 @@
       <img width="150" src="/images/logo.png" alt="">
     </div>
 
-    <div class="hero-wrap" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url('https://res.cloudinary.com/dedwkqlng/image/upload/v1711322208/assets/hero_bg.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center">
@@ -26,7 +26,6 @@
     <section class="ftco-no-pb">
       <div class="container">
         <div class="row">
-
           <div class="col-md-6 wrap-about pl-md-5 ftco-animate py-5">
             <div class="heading-section">
               <span class="subheading">Since 2004</span>
@@ -44,7 +43,7 @@
 
           </div>
           <div class="col-md-6 img img-3 d-flex justify-content-center align-items-center floating"
-            style="background-image: url(images/about.jpg);">
+            style="background-image: url('https://res.cloudinary.com/dedwkqlng/image/upload/v1711322208/assets/home.jpg');">
           </div>
         </div>
       </div>
@@ -87,7 +86,7 @@
                 <h5 class="mb-1 strong text-primary">4. Bali & Lombok</h5>
               </div>
               <div class="pr">
-                <h5 class="mb-1 strong text-primary">5. Pekanbaru (Sumatera)</h5>
+                <h5 class="mb-1 strong text-primary">5. Pekanbaru (Sumatera) & Palembang</h5>
               </div>
               <div class="pr">
                 <h5 class="mb-1 strong text-primary">6. Semarang (Central Java and Yogyakarta)</h5>

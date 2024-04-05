@@ -119,7 +119,7 @@ export default defineComponent({
     if (this.category) {
       useSeoMeta({
         title: `${this.category.description} | Jaddi Internasional`,
-        description: "Encapsulates the essence of cherishing life's finest occasions with the perfect beverage."
+        description: "Wine & Spirit Importir"
       })
     }
   },

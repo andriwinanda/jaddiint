@@ -129,8 +129,8 @@ export default defineComponent({
 
   created() {
     useSeoMeta({
-      title: 'Jaddi Internasional',
-      description: "Encapsulates the essence of cherishing life's finest occasions with the perfect beverage."
+      title: 'News | Jaddi Internasional',
+      description: "Wine & Spirit Importir"
     })
   },
 

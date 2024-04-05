@@ -4891,6 +4891,7 @@
    justify-content: space-between;
    padding: 0.5rem 1rem;
    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+   min-height: 73.195px;
  }
  
  .navbar>.container,
@@ -4939,6 +4940,7 @@
  .navbar-nav .nav-link {
    padding-right: 0;
    padding-left: 0;
+  //  transition: none !important;
  }
  
  .navbar-nav .dropdown-menu {
@@ -4961,6 +4963,7 @@
    -webkit-box-align: center;
    -ms-flex-align: center;
    align-items: center;
+   transition:  ease 0.5;
  }
  
  .navbar-toggler {
@@ -12077,7 +12080,7 @@
    color: #000000 !important;
  }
  
- .ftco-navbar-light.scrolled .nav-link.active {
+ .ftco-navbar-light .nav-link.active {
    color: var(--primary) !important;
  }
  

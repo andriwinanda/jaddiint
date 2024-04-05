@@ -1,6 +1,7 @@
 <template>
   <div>
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');"
+    <section class="hero-wrap hero-wrap-2"
+      style="background-image: url('https://res.cloudinary.com/dedwkqlng/image/upload/v1711322208/assets/hero_bg.jpg');"
       data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -46,13 +47,13 @@
                   <td class="row">
                     <div class="col-12">
                       <span>
-                        Eko Trisno Setiawan
+                       Novia
                       </span>
                     </div>
                     <div class="col">
 
-                      <a class="small" href="mailto:eko@megabeverindo.com">
-                        (eko@megabeverindo.com)</a>
+                      <a class="small" href="mailto:novia@megabeverindo.com">
+                        (novia@megabeverindo.com)</a>
                     </div>
                   </td>
                 </tr>
@@ -75,6 +76,28 @@
                     <div class="col">
                       <a class="small" href="mailto:eddy@panpacificinternusa.com">
                         (eddy@panpacificinternusa.com)</a>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <table class="mb-2">
+                <tr>
+                  <td>Distributor</td>
+                  <td class="px-3">:</td>
+                  <td class="strong">PT Tirtamas Usaha Makmur </td>
+                </tr>
+                <tr>
+                  <td>Contact Person</td>
+                  <td class="px-3">:</td>
+                  <td class="row">
+                    <div class="col-12">
+                      <span>
+                        Eko Trisno Setiawan
+                      </span>
+                    </div>
+                    <div class="col">
+                      <a class="small" href="mailto:eko@tirtamasdist.com">
+                        (eko@tirtamasdist.com)</a>
                     </div>
                   </td>
                 </tr>
@@ -159,7 +182,7 @@
               </table>
             </div>
             <div class="pr">
-              <h5 class="mb-1 strong text-primary">5. Pekanbaru (Sumatera)</h5>
+              <h5 class="mb-1 strong text-primary">5. Pekanbaru (Sumatera) & Palembang</h5>
               <table class="mb-2">
                 <tr>
                   <td>Distributor</td>
@@ -253,14 +276,6 @@
                 </div>
                 <div class="col-md-12 mb-2 col-sm-6 d-flex">
                   <div class="ftco-animate">
-                    <h5 class="strong text-primary mt-0">VIN+ GSA (CP )</h5>
-                    <p class="text-dark small">Ruko Garden Shopping Arcade 08ec, Jl. Letjen S.
-                      Parman Kav 28, Jakarta
-                    </p>
-                  </div>
-                </div>
-                <div class="col-md-12 mb-2 col-sm-6 d-flex">
-                  <div class="ftco-animate">
                     <h5 class="strong text-primary mt-0">VIN+ Seminyak Bali</h5>
                     <p class="text-dark small">Jl. Kayu Jati #1 Seminyak, Bali</p>
                   </div>
@@ -269,12 +284,6 @@
                   <div class="ftco-animate">
                     <h5 class="strong text-primary mt-0">VIN+ Surabaya</h5>
                     <p class="text-dark small">Wyndham Hotel, 2nd Fl, Surabaya</p>
-                  </div>
-                </div>
-                <div class="col-md-12 mb-2 col-sm-6 d-flex">
-                  <div class="ftco-animate">
-                    <h5 class="strong text-primary mt-0">SAKE+ Senopati</h5>
-                    <p class="text-dark small">Jalan Senopati no 54, Jakarta</p>
                   </div>
                 </div>
                 <div class="col-md-12 mb-2 col-sm-6 d-flex">
@@ -291,13 +300,6 @@
                 </div>
               </div>
               <div class="col-md-6">
-
-                <div class="col-md-12 mb-2 col-sm-6 d-flex">
-                  <div class="ftco-animate">
-                    <h5 class="strong text-primary mt-0">Botanica</h5>
-                    <p class="text-dark small">ASHTA District 8, GF 29, Jakarta</p>
-                  </div>
-                </div>
                 <div class="col-md-12 mb-2 col-sm-6 d-flex">
                   <div class="ftco-animate">
                     <h5 class="strong text-primary mt-0"> WSC Summarecon Mall Serpong</h5>
@@ -320,12 +322,6 @@
                   <div class="ftco-animate">
                     <h5 class="strong text-primary mt-0"> WSC Indoguna</h5>
                     <p class="text-dark small">JL. Cipaku 1 No.13, Jakarta</p>
-                  </div>
-                </div>
-                <div class="col-md-12 mb-2 col-sm-6 d-flex">
-                  <div class="ftco-animate">
-                    <h5 class="strong text-primary mt-0"> TIKITAKA Bar Summarecon Mall Serpong</h5>
-                    <p class="text-dark small">Summarecon Mall Serpong unit DGF-221, Tangerang</p>
                   </div>
                 </div>
                 <div class="col-md-12 mb-2 col-sm-6 d-flex">
