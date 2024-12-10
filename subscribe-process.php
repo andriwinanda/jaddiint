@@ -9,7 +9,7 @@ if (empty($_POST["email"])) {
     $email = $_POST["email"];
 }
 
-$EmailTo = "jaddiint@gmail.com";
+$EmailTo = "jaddinternasional@gmail.com";
 $Subject = "New Subscriber";
 
 // prepare email body text

@@ -19,7 +19,6 @@
               <li><a @click="$router.push('/distribution')"><span
                     class="fa fa-chevron-right mr-2"></span>Distribution</a></li>
               <li><a @click="$router.push('/contact')"><span class="fa fa-chevron-right mr-2"></span>Contact us</a></li>
-              <li><a><span class="fa fa-chevron-right mr-2"></span>Data Bank</a></li>
             </ul>
           </div>
         </div>

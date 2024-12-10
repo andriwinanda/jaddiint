@@ -19,7 +19,7 @@ if (empty($_POST["message"])) {
     $message = $_POST["message"];
 }
 
-$EmailTo = "jaddiint@gmail.com";
+$EmailTo = "jaddinternasional@gmail.com";
 $Subject = "New message from Website";
 
 // prepare email body text

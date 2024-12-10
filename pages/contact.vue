@@ -1,6 +1,7 @@
 <template>
   <div>
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('https://res.cloudinary.com/dedwkqlng/image/upload/v1711322208/assets/hero_bg.jpg');"
+    <section class="hero-wrap hero-wrap-2"
+      style="background-image: url('https://res.cloudinary.com/dedwkqlng/image/upload/v1711322208/assets/hero_bg.jpg');"
       data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -82,7 +83,14 @@
                       </div>
                       <div class="col-md-12">
                         <div class="d-flex">
-                          <button class="btn btn-primary" @click="submit()">Send Message</button>
+                          <button v-if="isLoading" class="btn btn-primary" disabled>
+                            <div class="spinner-grow spinner-grow-sm" role="status">
+                              <span class="sr-only">Loading...</span>
+                            </div>
+                            Sending...
+
+                          </button>
+                          <button v-else class="btn btn-primary" @click="submit()">Send Message</button>
                         </div>
                       </div>
                     </div>
@@ -102,6 +110,19 @@
         </div>
       </div>
     </section>
+
+    <!-- TOAST -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 99999">
+      <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div :class="`toast-header text-white ${toast.type === 'error' ? 'bg-danger' : 'bg-success'}`">
+          <strong class="me-auto text-capitalize ">{{ toast.type }}</strong>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body text-black">
+          {{ toast.msg }}
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
@@ -113,9 +134,26 @@ let status = ref('')
 let name = ref('')
 let email = ref('')
 let message = ref('')
+let toast = ref({
+  type: '',
+  msg: ''
+})
 
 const submit = async () => {
-  isLoading = true
+  const emailRegex = /\S+@\S+\.\S+/
+  if (!name.value || !email.value || !message.value) {
+    toast.value.type = 'error'
+    toast.value.msg = 'Please fill out the form completely!!'
+    window.$('#liveToast').toast('show')
+    return
+  }
+  if (!emailRegex.test(email.value)) {
+    toast.value.type = 'error'
+    toast.value.msg = 'Invalid email!!'
+    window.$('#liveToast').toast('show')
+    return
+  }
+  isLoading.value = true
   const data = new FormData()
   data.append('name', name.value)
   data.append('email', email.value)
@@ -125,18 +163,21 @@ const submit = async () => {
     method: 'post',
     body: data,
   }).then(res => {
-    isLoading = false
-    status = 'sumbitted'
-    name = ''
-    email = ''
-    message = ''
-    alert('Done!')
+    isLoading.value = false
+    status.value = 'sumbitted'
+    name.value = ''
+    email.value = ''
+    message.value = ''
+    toast.value.type = 'success'
+    toast.value.msg = 'Message sent!'
+    window.$('#liveToast').toast('show')
     console.log(res)
   }).catch(err => {
-    isLoading = false
-    status = 'error'
-    alert('Error!')
-
+    isLoading.value = false
+    status.value = 'error'
+    toast.value.type = 'error'
+    toast.value.msg = 'Message not sent!'
+    window.$('#liveToast').toast('show')
     console.log(err)
   })
 }

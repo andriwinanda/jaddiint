@@ -23,7 +23,7 @@
             <!-- <a href="/distribution" :class="`nav-link ${$route.name === 'ditribution'? 'active': ''}`">Distribution</a> -->
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Academy</a>
+            <a target="_blank" href="http://jaddiacademy.com" class="nav-link">Academy</a>
           </li>
           <li class="nav-item dropdown">
             <a :class="`nav-link dropdown-toggle ${$route.name === 'portfolio-type'? 'active': ''}`" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -19,16 +19,18 @@
                   <div class="meta">
                     <p class="m-0"><span class="fa fa-calendar"></span> {{ formatDate(headline.createdAt) }}</p>
                   </div>
-                  <h3 class="heading mb-3"><a @click="$router.push(`/news/${headline.idNews}`)">{{ headline.name.slice(0, 150) }} {{ headline.name.length >= 150
-          ? '...' : '' }}</a></h3>
-                  <a @click="$router.push(`/news/${headline.idNews}`)" class="btn-custom">Continue <span class="fa fa-long-arrow-right"></span></a>
+                  <h3 class="heading mb-3"><a @click="$router.push(`/news/${headline.idNews}`)">{{
+                    headline.name.slice(0, 150) }} {{ headline.name.length >= 150
+                        ? '...' : '' }}</a></h3>
+                  <a @click="$router.push(`/news/${headline.idNews}`)" class="btn-custom">Continue <span
+                      class="fa fa-long-arrow-right"></span></a>
                 </div>
               </div>
               <div class="col bg-white p-4">
                 <h5 class="font-12 strong">SUBSCRIBE TO THE NEWSLETTER</h5>
                 <p>Join our Newsletter to find out everything that happens.</p>
                 <div class="d-grid">
-                  <button class="btn btn-primary" role="button" href="#exampleModalToggle"
+                  <button class="btn btn-primary" role="button" href="#subsModal"
                     data-bs-toggle="modal">SUBSCRIBE</button>
                 </div>
               </div>
@@ -62,7 +64,8 @@
                     {{ item.name.slice(0, 40) }} {{ item.name.length >= 40 ? '...' : '' }}
                   </a>
                 </h3>
-                <a @click="$router.push(`/news/${item.idNews}`)" class="btn-custom">Continue <span class="fa fa-long-arrow-right"></span></a>
+                <a @click="$router.push(`/news/${item.idNews}`)" class="btn-custom">Continue <span
+                    class="fa fa-long-arrow-right"></span></a>
               </div>
             </div>
           </div>
@@ -70,14 +73,15 @@
       </div>
     </section>
 
+
     <!-- Modal -->
 
-    <div class="modal fade" ref="footnote" id="exampleModalToggle" aria-hidden="true"
-      aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal fade" ref="footnote" id="subsModal" aria-hidden="true" aria-labelledby="subsModalLabel"
+      tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <!-- <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalToggleLabel">Hahaha</h5>
+            <h5 class="modal-title" id="subsModalLabel">Hahaha</h5>
           </div> -->
           <div class="d-flex justify-content-end pt-4 pe-4">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -92,7 +96,7 @@
             </div>
 
             <div class="d-flex justify-content-end">
-              <button class="btn btn-primary" @click="subscribe()">SUBSCRIBE</button>
+              <button class="btn btn-primary" @click.stop="subscribe()">SUBSCRIBE</button>
 
             </div>
           </div>
@@ -103,27 +107,43 @@
       </div>
     </div>
 
+    <!-- TOAST -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 99999">
+      <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div :class="`toast-header text-white ${toast.type === 'error'? 'bg-danger': 'bg-success'}`">
+          <strong class="me-auto text-capitalize ">{{ toast.type }}</strong>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body text-black">
+          {{ toast.msg }}
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { ref } from 'vue'
-import { useRoute } from 'vue-router'
-
 export default defineComponent({
   async setup() {
+    const footnote = ref()
     let headline = {}
-    const news = await $fetch(`https://pujon.vercel.app/api/news`)
+    const news: any = await $fetch(`https://pujon.vercel.app/api/news`)
     if (news.length) headline = news[0]
     return {
       headline,
-      news
+      news,
+      footnote
     }
   },
   data() {
     return {
       isSending: false,
-      email: ''
+      email: '',
+      toast: {
+        type: '',
+        msg: ''
+      }
     }
   },
 
@@ -144,7 +164,26 @@ export default defineComponent({
 
       return `${year}/${month}/${day}`;
     },
-    subscribe() {
+    async subscribe() {
+      this.isSending = true
+      const data = new FormData()
+      data.append('email', this.email)
+      const url = "https://pujon.vercel.app/api/subscriber"
+      $fetch(url, {
+        method: 'post',
+        body: data,
+      }).then(res => {
+        this.isSending = false
+        this.sendEmail()
+      }).catch(err => {
+        this.isSending = false
+        this.toast.type = 'error'
+        this.toast.msg = err.data.message
+        window.$('#liveToast').toast('show')
+      })
+    },
+
+    async sendEmail() {
       this.isSending = true
       const data = new FormData()
       data.append('email', this.email)
@@ -155,16 +194,15 @@ export default defineComponent({
       }).then(res => {
         this.isSending = false
         this.email = ''
-        alert('Done!')
-        console.log(res)
+        window.$('#subsModal').modal('hide')
+        this.toast.type = 'success'
+        this.toast.msg = 'Request sent!'
+        window.$('#liveToast').toast('show')
       }).catch(err => {
         this.isSending = false
-        alert('Error!')
-        console.log(err)
       })
     }
   }
-
 })
 </script>
 <style scoped>

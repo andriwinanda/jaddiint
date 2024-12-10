@@ -26,7 +26,10 @@ export default defineNuxtConfig({
 
   },
 
-  modules: ['@hypernym/nuxt-anime'],
+  modules: [
+    '@hypernym/nuxt-anime'
+  ],
+
 
   experimental: {
     defaults: {

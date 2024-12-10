@@ -4,7 +4,9 @@
       <img width="150" src="/images/logo.png" alt="">
     </div>
 
-    <div class="hero-wrap" style="background-image: url('https://res.cloudinary.com/dedwkqlng/image/upload/v1711322208/assets/hero_bg.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap"
+      style="background-image: url('https://res.cloudinary.com/dedwkqlng/image/upload/v1711322208/assets/hero_bg.jpg');"
+      data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center">
@@ -149,7 +151,7 @@
               </div>
               <div class="text p-4">
                 <div class="meta">
-                  <p><span class="fa fa-calendar"></span> 2024/03/28</p>
+                  <p><span class="fa fa-calendar"></span> {{ formatDate(item.createdAt) }}</p>
                 </div>
                 <h3 class="heading mb-3">
                   <a @click="$router.push(`/news/${item.idNews}`)">
@@ -252,8 +254,22 @@
         </div>
       </div>
     </div>
-  </div>
 
+
+    <!-- TOAST -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 99999">
+      <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div :class="`toast-header text-white ${toast.type === 'error' ? 'bg-danger' : 'bg-success'}`">
+          <strong class="me-auto text-capitalize ">{{ toast.type }}</strong>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body text-black">
+          {{ toast.msg }}
+        </div>
+      </div>
+    </div>
+
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
@@ -299,7 +315,11 @@ export default defineComponent({
       products: [],
       news: [],
       email: '',
-      isSending: false
+      isSending: false,
+      toast: {
+        type: '',
+        msg: ''
+      }
     }
   },
   methods: {
@@ -318,7 +338,26 @@ export default defineComponent({
       this.news = news.slice(0, 3)
       this.isLoading = false
     },
-    subscribe() {
+    async subscribe() {
+      this.isSending = true
+      const data = new FormData()
+      data.append('email', this.email)
+      const url = "https://pujon.vercel.app/api/subscriber"
+      $fetch(url, {
+        method: 'post',
+        body: data,
+      }).then(res => {
+        this.isSending = false
+        this.sendEmail()
+      }).catch(err => {
+        this.isSending = false
+        this.toast.type = 'error'
+        this.toast.msg = err.data.message
+        window.$('#liveToast').toast('show')
+      })
+    },
+
+    async sendEmail() {
       this.isSending = true
       const data = new FormData()
       data.append('email', this.email)
@@ -329,14 +368,22 @@ export default defineComponent({
       }).then(res => {
         this.isSending = false
         this.email = ''
-        alert('Done!')
-        console.log(res)
+        this.toast.type = 'success'
+        this.toast.msg = 'Request sent!'
+        window.$('#liveToast').toast('show')
       }).catch(err => {
         this.isSending = false
-        alert('Error!')
-        console.log(err)
       })
-    }
+    },
+    formatDate(time: any) {
+      const date = new Date(time);
+      // Get year, month, and day part from the date
+      const year = date.toLocaleString("default", { year: "numeric" });
+      const month = date.toLocaleString("default", { month: "2-digit" });
+      const day = date.toLocaleString("default", { day: "2-digit" });
+
+      return `${year}/${month}/${day}`;
+    },
 
   },
 
